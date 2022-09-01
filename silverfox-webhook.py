@@ -13,22 +13,18 @@ webhook_url = 'https://hooks.slack.com/workflows/T016Q4VNKG9/A03S20H5JJJ/4194821
 # Data can be anything that you would like to to be. 
 # Be sure to change the variables on the slack channel config. 😉
 data = { 'Detection': 'MC33 dectected passing the security desk!' }
-post_to_slack = requests.post(webhook_url, data=json.dumps(data), headers={'Content-Type': 'application/json'})
+
+# post_to_slack = requests.post(webhook_url, data=json.dumps(data), headers={'Content-Type': 'application/json'})
+
+# Minimize window after script execute.
+pyautogui.hotkey("win", 'down')
 
 # Code for hook execution. Will detect if alarm is sounded. 
 while 1:
     if pyautogui.locateOnScreen('target.png') != None:
         print("I can see it!")
+        requests.post(webhook_url, data=json.dumps(data), headers={'Content-Type': 'application/json'})
         time.sleep(5)
     else:
-        print("I can't see shit!")
+        print("Nope,I can't see it!")
         time.sleep(5)
-
-
-# while True:
-#     find_value = pyautogui.locateOnScreen('target.png')
-#     if find_value == None:
-#         pass
-#     else:
-#         post_to_slack
-#     find_value
