@@ -1,20 +1,32 @@
 from tkinter import Frame
 import cv2
+from cv2 import imshow
+from cv2 import imwrite
+from cv2 import waitKey
+from cv2 import destroyWindow
 
-def show_webcam(mirror=False):
-    cam = cv2.VideoCapture(1)
-    while True:
-        ret_val, img = cam.read()
-        if mirror: 
-            img = cv2.flip(img, 1)
-        cv2.imshow('my webcam', img)
-        if cv2.waitKey(1) == 27: 
-            break  # esc to quit
-    cv2.destroyAllWindows()
-
-
-def main():
-    show_webcam(mirror=True)
-
-if __name__ == '__main__':
-    main()
+cam_port = 1
+cam = cv2.VideoCapture(cam_port)
+  
+# reading the input using the camera
+result, image = cam.read()
+  
+# If image will detected without any error, 
+# show result
+if result:
+  
+    # showing result, it take frame name and image 
+    # output
+    imshow("GeeksForGeeks", image)
+  
+    # saving image in local storage
+    imwrite("GeeksForGeeks.png", image)
+  
+    # If keyboard interrupt occurs, destroy image 
+    # window
+    waitKey(0)
+    destroyWindow("GeeksForGeeks")
+  
+# If captured image is corrupted, moving to else part
+else:
+    print("No image detected. Please! try again")

@@ -2,7 +2,7 @@ import json
 from multiprocessing import pool
 import re
 from tkinter.tix import Tree
-from cv2 import VideoCapture, imshow
+from cv2 import VideoCapture, imshow, imwrite
 import requests
 import pyautogui
 import time
@@ -32,7 +32,9 @@ while 1:
     if pyautogui.locateOnScreen('target.png') != None:
         print("I can see it!")
         # requests.post(webhook_url, data=json.dumps(data), headers={'Content-Type': 'application/json'})
-        imshow("Person Cap", image)
+        if result:
+            imshow('PersonCapture', image)
+            imwrite('PersonCapture.png', image)
         time.sleep(5)
     else:
         print("Nope,I can't see it!")
