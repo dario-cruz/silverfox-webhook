@@ -9,8 +9,7 @@ import time
 import cv2
 
 # Webhook url for slack intergration.
-webhook_url = 'https://hooks.slack.com/workflows/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'
-
+webhook_url = # Place slack url here.
 # Using requests library to push http post to slack url. 
 # Data can be anything that you would like to to be. 
 # Be sure to change the variables on the slack channel config. 😉
