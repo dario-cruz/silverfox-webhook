@@ -1,4 +1,3 @@
-from curses import panel
 import json
 from multiprocessing import pool
 import re
@@ -12,19 +11,19 @@ import cv2
 import wx
 
 # Creating a class for the UI.
-class MyFrame(wx.frame):
+class SilverFoxUI(wx.Frame):
     def __init__(self):
         super().__init__(parent=None, title="SilverFox Webook by Dariocru")
         panel = wx.Panel(self)
 
         self.text_ctrl = wx.TextCtrl(panel, pos=(5,5))
         my_btn = wx.Button(panel, label="Click Here for Nothing!", pos=(5,55))
-        
-        self.show()
+
+        self.Show()
 
 if __name__ == '__main__':
     app = wx.App()
-    frame = MyFrame()
+    frame = SilverFoxUI()
     app.MainLoop()
 
 
