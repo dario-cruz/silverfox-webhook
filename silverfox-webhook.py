@@ -13,13 +13,24 @@ import wx
 # Creating a class for the UI.
 class SilverFoxUI(wx.Frame):
     def __init__(self):
-        super().__init__(parent=None, title="SilverFox Webook by Dariocru")
+        super().__init__(parent=None, title="SilverFox Webook by Dariocru", size=(300, 200))
         panel = wx.Panel(self)
+
+        foxMenuBar = wx.MenuBar()
+        foxMenu = wx.Menu()
+        foxMenuItem = foxMenu.Append(wx.ID_EXIT, "Quit", "Quit Application")
+        foxMenuBar.Append(foxMenu, '&File')
+        self.SetMenuBar(foxMenuBar)
+
+        self.Bind(wx.EVT_MENU, self.OnQuit, foxMenuItem)
 
         self.text_ctrl = wx.TextCtrl(panel, pos=(5,5))
         my_btn = wx.Button(panel, label="Click Here for Nothing!", pos=(5,55))
 
+        self.Center()
         self.Show()
+    def OnQuit(self, e):
+        self.Close()
 
 if __name__ == '__main__':
     app = wx.App()
