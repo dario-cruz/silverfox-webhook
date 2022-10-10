@@ -5,7 +5,7 @@ from tkinter.tix import Tree
 from cv2 import VideoCapture, imshow, imwrite
 import requests
 import pyautogui
-import time
+importsilverfox-webhook.py time
 import cv2
 
 # Webhook url for slack intergration.
